@@ -2,45 +2,48 @@
 
 vector<int> LC0054::spiralOrder(vector<vector<int>> &matrix) {
 	vector<int> res;
-	int m = matrix.size(); // number of rows
-	int n = matrix[0].size(); // number of cols
 
-	int row = 0;
-	int col = 0;
+	if (matrix.empty()) {
+		return res;
+	}
 
-	int start_row = 0;
-	int start_col = 0;
+	int u = 0; // 上边界
+	int d = matrix.size() - 1; // 下边界
+	int l = 0; // 左边界
+	int r = matrix[0].size() - 1; // 右边界
 
-	while (start_col <= n / 2 || start_row <= m / 2) {
-		row = start_row;
-		col = start_col;
-
-		// 第一行（除去最后一个元素，左闭右开）
-		for (; col < n - 1 - start_col; col++) {
-			cout << row << "," << col << endl;
-			res.push_back(matrix[row][col]);
+	while (true) {
+		for (int i = l; i <= r; i++) {
+			res.push_back(matrix[u][i]);
 		}
 
-		// 最后一列（除去最后一个元素，左闭右开）
-		for (; row < m - 1 - start_row; row++) {
-			cout << row << "," << col << endl;
-			res.push_back(matrix[row][col]);
+		if (++u > d) {
+			break;
 		}
 
-		// 最后一行（除去最后一个元素，左闭右开）
-		for (; col > start_col; col--) {
-			cout << row << "," << col << endl;
-			res.push_back(matrix[row][col]);
+		for (int i = u; i <= d; ++i) {
+			res.push_back(matrix[i][r]);
 		}
 
-		// 第一列（除去最后一个元素，左闭右开）
-		for (; row > start_row; row--) {
-			cout << row << "," << col << endl;
-			res.push_back(matrix[row][col]);
+		if (--r < l) {
+			break;
 		}
 
-		start_row++;
-		start_col++;
+		for (int i = r; i >= l; --i) {
+			res.push_back(matrix[d][i]);
+		}
+
+		if (--d < u) {
+			break;
+		}
+
+		for (int i = d; i >= u; --i) {
+			res.push_back(matrix[i][l]);
+		}
+
+		if (++l > r) {
+			break;
+		}
 	}
 
 	return res;
