@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
+using std::vector;
 
 class LC0054 {
 public:
