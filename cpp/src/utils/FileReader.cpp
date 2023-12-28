@@ -1,6 +1,6 @@
-#include "Handler.h"
+#include "FileReader.h"
 
-vector<vector<int>> Handler::handle_matrix(string file_path) {
+vector<vector<int>> FileReader::getMatrix(string file_path) {
 	vector<vector<int>> res;
 
 	ifstream input_file(file_path);
@@ -10,7 +10,7 @@ vector<vector<int>> Handler::handle_matrix(string file_path) {
 	}
 
 	// 逐行读取文件内容
-	cout << "Reading from file: " << file_path << endl;
+	cout << "\e[0;34m" << ">>>>>>> BOF: " << file_path << "\033[0m" << endl;
 	string line;
 	while (getline(input_file, line)) {
 		// 使用 istringstream 分割字符串
@@ -25,8 +25,19 @@ vector<vector<int>> Handler::handle_matrix(string file_path) {
 		cout << line << endl;
 		res.push_back(tokens);
 	}
-	cout << "End of file: " << file_path << endl;
+	cout << "\e[0;34m" << "<<<<<<< EOF: " << file_path << "\033[0m" << endl;
 
 	input_file.close();
+	return res;
+}
+
+vector<int> FileReader::getNumbers(string file_path) {
+	vector<int> res;
+
+	vector<vector<int>> matrix = FileReader::getMatrix(file_path);
+	for (auto &t : matrix[0]) {
+		res.push_back(t);
+	}
+
 	return res;
 }

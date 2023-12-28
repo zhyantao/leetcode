@@ -1,51 +1,63 @@
 #include "LeetCode/LC0054.h"
 #include "LeetCode/LC0059.h"
-#include "tools/Handler.h"
+#include "LeetCode/LC0209.h"
+#include "utils/FileReader.h"
 
 int main(int argc, char *argv[]) {
-//	Handler handler;
+	FileReader fileReader;
+	string file_path;
 
-//	LC0054 solution;
-//
-//	string file_path;
-//	vector<vector<int>> matrix;
-//	vector<int> res;
-//
-//	file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix1.txt";
-//	matrix = handler.handle_matrix(file_path);
-//	res = solution.spiralOrder(matrix);
-//	for (const auto &t : res)
-//		cout << t << " ";
-//	cout << endl;
-//
-//	file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix2.txt";
-//	matrix = handler.handle_matrix(file_path);
-//	res = solution.spiralOrder(matrix);
-//	for (const auto &t : res)
-//		cout << t << " ";
-//	cout << endl;
-//
-//	file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix3.txt";
-//	matrix = handler.handle_matrix(file_path);
-//	res = solution.spiralOrder(matrix);
-//	for (const auto &t : res)
-//		cout << t << " ";
-//	cout << endl;
-//
-//	file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix4.txt";
-//	matrix = handler.handle_matrix(file_path);
-//	res = solution.spiralOrder(matrix);
-//	for (const auto &t : res)
-//		cout << t << " ";
-//	cout << endl;
+	{
+		LC0054 solution;
+		vector<vector<int>> matrix;
 
-	LC0059 solution0059;
-	vector<vector<int>> res0059 = solution0059.generateMatrix(3);
-	for (const auto &row : res0059) {
-		for (const auto &col : row) {
-			cout << col << " ";
-		}
+		vector<int> res;
+		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix1.txt";
+		matrix = fileReader.getMatrix(file_path);
+		res = solution.spiralOrder(matrix);
+		for (const auto &t : res)
+			cout << t << " ";
 		cout << endl;
+
+		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix2.txt";
+		matrix = fileReader.getMatrix(file_path);
+		res = solution.spiralOrder(matrix);
+		for (const auto &t : res)
+			cout << t << " ";
+		cout << endl;
+
+		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix3.txt";
+		matrix = fileReader.getMatrix(file_path);
+		res = solution.spiralOrder(matrix);
+		for (const auto &t : res)
+			cout << t << " ";
+		cout << endl;
+
+		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/matrix4.txt";
+		matrix = fileReader.getMatrix(file_path);
+		res = solution.spiralOrder(matrix);
+		for (const auto &t : res)
+			cout << t << " ";
+		cout << endl;
+	}
+
+	{
+		LC0059 solution;
+		vector<vector<int>> res = solution.generateMatrix(3);
+		for (const auto &row : res) {
+			for (const auto &col : row) {
+				cout << col << " ";
+			}
+			cout << endl;
+		}
+	}
+
+	{
+		LC0209 solution;
+		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/numbers.txt";
+		vector<int> nums = fileReader.getNumbers(file_path);
+		int res = solution.minSubArrayLen(697439, nums);
+		cout << res << endl;
 	}
 
 	return 0;
