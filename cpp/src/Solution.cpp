@@ -3,6 +3,7 @@
 #include "LeetCode/LC0059.h"
 #include "LeetCode/LC0209.h"
 #include "LeetCode/LC0027.h"
+#include "LeetCode/LC0704.h"
 
 int main(int argc, char *argv[]) {
 	FileReader fileReader;
@@ -61,11 +62,21 @@ int main(int argc, char *argv[]) {
 //		cout << res << endl;
 //	}
 
+//	{
+//		LC0027 solution;
+//		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/numbers.txt";
+//		vector<int> nums = fileReader.getNumbers(file_path);
+//		int res = solution.removeElement(nums, 4);
+//		cout << res << endl;
+//	}
+
 	{
-		LC0027 solution;
+		LC0704 solution;
 		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/numbers.txt";
 		vector<int> nums = fileReader.getNumbers(file_path);
-		int res = solution.removeElement(nums, 4);
+		int target = 2;
+		cout << target<< endl;
+		int res = solution.search(nums, target);
 		cout << res << endl;
 	}
 
