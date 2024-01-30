@@ -5,7 +5,33 @@
 #include "LeetCode/LC0027.h"
 #include "LeetCode/LC0704.h"
 
+#include <cstdint>
+#include <array>
+
+#define FILL(ret) func<(ret).size()>(ret)
+
+template<size_t N>
+void func(std::array<uint8_t, N> ret) {
+	for (size_t i = 0; i < ret.size(); i++) {
+		printf("%02X ", ret[i]);
+	}
+	std::cout << std::endl;
+}
+
 int main(int argc, char *argv[]) {
+
+	{
+		std::array<uint8_t, 1> tmp1 = { 0 };
+		tmp1[0] = 0x22;
+		std::array<uint8_t, 3> tmp2;
+		tmp2[0] = 0x33;
+		tmp2[1] = 0x21;
+		tmp2[2] = 0x12;
+
+		FILL(tmp1);
+		FILL(tmp2);
+	}
+
 	FileReader fileReader;
 	string file_path;
 
@@ -75,7 +101,7 @@ int main(int argc, char *argv[]) {
 		file_path = "D:/local_workshop/leetcode/cpp/src/inputs/numbers.txt";
 		vector<int> nums = fileReader.getNumbers(file_path);
 		int target = 2;
-		cout << target<< endl;
+		cout << target << endl;
 		int res = solution.search(nums, target);
 		cout << res << endl;
 	}
