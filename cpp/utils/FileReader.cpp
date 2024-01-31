@@ -10,7 +10,7 @@ vector<vector<int>> FileReader::getMatrix(string file_path) {
 	}
 
 	// 逐行读取文件内容
-	cout << "\e[0;34m" << ">>>>>>> BOF: " << file_path << "\033[0m" << endl;
+	cout << "\e[0;34m" << ">>>>>>> Get TestCase from " << file_path << "\033[0m" << endl;
 	string line;
 	while (getline(input_file, line)) {
 		// 使用 istringstream 分割字符串
@@ -25,7 +25,7 @@ vector<vector<int>> FileReader::getMatrix(string file_path) {
 		cout << line << endl;
 		res.push_back(tokens);
 	}
-	cout << "\e[0;34m" << "<<<<<<< EOF: " << file_path << "\033[0m" << endl;
+	cout << "\e[0;34m" << ">>>>>>> End of TestCase : " << file_path << "\033[0m" << endl;
 
 	input_file.close();
 	return res;
