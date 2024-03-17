@@ -1,6 +1,6 @@
 CURR_DIR := $(pwd)
 
-TARGET := solution
+TARGET := Solution
 SRCS := $(wildcard *.cpp utils/*.cpp LeetCode/*.cpp)
 OBJS := $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -15,6 +15,10 @@ $(TARGET): $(OBJS)
 
 $(OBJS): %.o: %.cpp
 	$(CXX) -o $@ -c $< $(CXXFLAGS)
+
+.PHONY: solution
+solution:
+	@./Solution
 
 .PHONY: clean
 clean:
